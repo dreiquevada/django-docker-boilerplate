@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+    db:
+        image: postgres
+        environment:
+          - POSTGRES_DB=postgres
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=postgres
+        ports:
+        - "54322:5432"
+    django_backend:
+        container_name: django_backend_container
+        build: .
+        command: python backend/manage.py runserver 0.0.0.0:80
+        volumes:
+            - ./:/code
+        ports:
+            - "80:80"
+        depends_on:
+            - db
