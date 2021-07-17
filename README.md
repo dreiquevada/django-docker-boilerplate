@@ -4,7 +4,7 @@ A basic boilerplate for a dockerized Django app with a PostgreSQL database
 ## Includes:
 - **Dockerfile**
     - Contains a basic Dockerfile setup that will:
-        - Copy project contents to a container folder (/code)
+        - Copy backend volume to a container folder (/code)
         - Install the basic packages inside `requirements.txt` file
         - Expose port 80
 
